@@ -61,3 +61,13 @@ services:
     command: webui
     ports:
       - "5000:5000"
+  graphql-engine:
+    image: hasura/graphql-engine:v1.0.0-beta.6
+    ports:
+    - "7080:8080"
+    restart: always
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:xcd4vmwk@pgdb0:5432/postgres
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
+      HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
+      HASURA_GRAPHQL_LOG_LEVEL: debug

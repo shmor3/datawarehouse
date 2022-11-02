@@ -4,14 +4,14 @@ services:
     image: adminer:latest
     restart: always
     ports:
-      - 8080:8080
+      - 5080:8080
   portia:
     image: scrapinghub/portia
     restart: always
     volumes:
       - ./data:/app/data/projects:rw
     ports:
-      - 9001:9001      
+      - 5011:9001      
   jupyter:
     image: jupyter/datascience-notebook:latest
     restart: always
@@ -64,7 +64,7 @@ services:
   graphql-engine:
     image: hasura/graphql-engine:v1.0.0-beta.6
     ports:
-    - "7080:8080"
+    - "7180:8080"
     restart: always
     environment:
       HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:xcd4vmwk@pgdb0:5432/postgres

@@ -1,0 +1,48 @@
+version: '3.7'
+services:
+  sqldb0:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: xcd4vmwk
+    volumes:
+      - /mnt/md0/sqldb0:/var/lib/mysql
+  sqldblb0:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: xcd4vmwk
+    volumes:
+      - /mnt/md0/sqldb0:/var/lib/mysql
+    depends_on:
+      - sqldb0
+  pgdb0:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: xcd4vmwk
+    volumes:
+      - /mnt/md0/pgdata0:/var/lib/postgresql/data
+  pgdblb0:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: xcd4vmwk
+    volumes:
+      - /mnt/md0/pgdata0:/var/lib/postgresql/data
+    depends_on:
+      - pgdb0
+  rddb0:
+    image: redis:latest
+    restart: always
+    depends_on:
+      - pgdb0
+  rabbitmq0:
+    container_name: rabbitmq0
+    image: rabbitmq:management
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"

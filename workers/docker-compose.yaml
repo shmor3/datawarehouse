@@ -1,0 +1,42 @@
+version: "3.7"
+services:
+  worker0:
+    build: .
+    restart: always
+    command: bash -c ""
+  worker1:
+    build: .
+    restart: always
+    command: bash -c ""
+  worker2:
+    build: .
+    restart: always
+    command: bash -c ""
+  worker3:
+    build: .
+    restart: always
+    command: bash -c ""
+  worker4:
+    build: .
+    restart: always
+    command: bash -c ""
+  worker5:
+    build: .
+    restart: always
+    command: bash -c ""
+  worker6:
+    build: .
+    restart: always
+    command: bash -c ""
+  worker7:
+    build: .
+    restart: always
+    command: bash -c ""
+  worker8:
+    build: .
+    restart: always
+    command: bash -c ""
+  worker9:
+    build: .
+    restart: always
+    command: bash -c ""

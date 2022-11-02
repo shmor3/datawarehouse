@@ -1,0 +1,40 @@
+version: '3.1'
+services:
+  sqldb0:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: xcd4vmwk
+  sqldb1:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: xcd4vmwk
+  sqldb2:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: xcd4vmwk
+  pgdb0:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: xcd4vmwk
+  mgdb0:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: quantize
+      MONGO_INITDB_ROOT_PASSWORD: xcd4vmwk
+  rddb0:
+    image: redis:latest
+    restart: always
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
